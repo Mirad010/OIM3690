@@ -1,7 +1,20 @@
-# OIM3690
-Course work 3690
+# OIM3690 – AI-Powered Web Development
 
-My name is Mirbosit. I am excited to build my websites!
+- **Name**: Mirbosit Adilov
+- **Semester**: Summer 2026
 
-## My Projects
-- [My personal Webside](https://github.com/Mirad010/OIM-3690/blob/main/README.md)
+This is my course repo for OIM3690. It holds class exercises, weekly logs, and links to all my projects.
+
+## Projects
+
+| Project | Repo | Live URL |
+|---------|------|----------|
+| Personal Website | [repo](https://github.com/Mirad010/mirad010.github.io) | [live](https://mirad010.github.io) |
+| MP1 – Website for Someone Else | | |
+| MP2 – Interactive Web Tool | | |
+| MP3 – API-Powered App | | |
+| Final Project | | |
+
+## Weekly Logs
+
+See the [logs/](logs/) folder.
