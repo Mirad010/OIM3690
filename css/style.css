@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+h1 {
+  color: navy;
+  font-size: 2em;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+a:hover {
+  color: red;
+}
