@@ -19,3 +19,40 @@ a:hover {
   text-align: center;
   border-bottom: 2px solid navy;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+label {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input:focus, textarea:focus {
+  border-color: navy;
+  outline: none;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: navy;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003366;
+}
