@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount Calculator</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 420px;
+    }
+    h1 { margin-bottom: 30px; color: #333; text-align: center; }
+    .input-group { margin-bottom: 20px; }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #555;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+    input[type="number"]:focus { outline: none; border-color: #4a90e2; }
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; }
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    button:hover { background: #357abd; }
+    .result {
+      margin-top: 25px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      display: none;
+    }
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    .result-row.total {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #333;
+      border-top: 2px solid #ddd;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    .discount-badge {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🛒 Checkout</h1>
+
+    <div class="input-group">
+      <label for="total">Order Total ($)</label>
+      <input type="number" id="total" placeholder="Enter total amount" min="0">
+    </div>
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="isMember">
+      <label for="isMember">I am a member</label>
+    </div>
+
+    <button onclick="calculate()">Calculate Discount</button>
+
+    <div class="result" id="result">
+      <div class="result-row">
+        <span>Original Price</span>
+        <span id="originalPrice"></span>
+      </div>
+      <div class="result-row">
+        <span>Discount <span class="discount-badge" id="discountBadge"></span></span>
+        <span id="discountAmount"></span>
+      </div>
+      <div class="result-row total">
+        <span>Total to Pay</span>
+        <span id="finalPrice"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function getDiscount(total, isMember) {
+      if (isMember && total >= 100) {
+        return 0.20;
+      } else if (isMember) {
+        return 0.10;
+      } else if (total >= 100) {
+        return 0.10;
+      } else {
+        return 0.05;
+      }
+    }
+
+    function calculate() {
+      const total = Number(document.getElementById('total').value);
+      const isMember = document.getElementById('isMember').checked;
+
+      if (!total || total <= 0) {
+        alert('Please enter a valid amount');
+        return;
+      }
+
+      const discountRate = getDiscount(total, isMember);
+      const discountAmount = total * discountRate;
+      const finalPrice = total - discountAmount;
+
+      document.getElementById('originalPrice').textContent = '$' + total.toFixed(2);
+      document.getElementById('discountBadge').textContent = (discountRate * 100) + '% off';
+      document.getElementById('discountAmount').textContent = '-$' + discountAmount.toFixed(2);
+      document.getElementById('finalPrice').textContent = '$' + finalPrice.toFixed(2);
+      document.getElementById('result').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
