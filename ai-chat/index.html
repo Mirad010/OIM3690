@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chat</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { color: #2c3e50; }
+    #chat { border: 1px solid #dde3ec; border-radius: 10px; padding: 1rem; min-height: 260px;
+            background: #f9fafb; margin-bottom: 1rem; }
+    .msg { padding: 0.6rem 0.9rem; border-radius: 10px; margin-bottom: 0.5rem; max-width: 85%; }
+    .user { background: #0f766e; color: white; margin-left: auto; }
+    .ai { background: #e8ecf1; color: #222; }
+    .row { display: flex; gap: 0.5rem; }
+    input { flex: 1; padding: 0.6rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+    button { padding: 0.6rem 1.2rem; border: none; border-radius: 8px; background: #0f766e;
+             color: white; font-size: 1rem; cursor: pointer; }
+    .error { color: #c0392b; }
+  </style>
+</head>
+<body>
+
+  <h1>🤖 AI Chat</h1>
+  <p>A small chat page that talks to the OpenAI API. The key lives in config.js, which is never committed.</p>
+
+  <div id="chat"></div>
+
+  <div class="row">
+    <input type="text" id="userInput" placeholder="Ask me anything..." />
+    <button id="sendBtn">Send</button>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
