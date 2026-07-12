@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fetch Fun</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; text-align: center; }
+    h1 { color: #2c3e50; }
+    button { padding: 0.7rem 1.4rem; border: none; border-radius: 8px; background: #0f766e;
+             color: white; font-size: 1rem; cursor: pointer; margin: 0.3rem; }
+    button:hover { background: #0d5f59; }
+    #output { margin-top: 1.5rem; min-height: 120px; }
+    #output img { max-width: 100%; border-radius: 12px; }
+    #output p { font-size: 1.2rem; background: #f4f6f9; padding: 1rem; border-radius: 12px; }
+    .error { color: #c0392b; }
+  </style>
+</head>
+<body>
+
+  <h1>🎲 Fetch Fun</h1>
+  <p>Two free APIs: a random dog photo and a random piece of advice.</p>
+
+  <button id="dogBtn">🐕 Random dog</button>
+  <button id="adviceBtn">💡 Random advice</button>
+  <button id="surpriseBtn">✨ Surprise me</button>
+
+  <div id="output"><p>Click a button to start!</p></div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    // API 1: Dog CEO — random dog image
+    async function getDog() {
+      output.innerHTML = "<p>Loading a dog...</p>";
+      try {
+        const response = await fetch("https://dog.ceo/api/breeds/image/random");
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const data = await response.json();
+        // the field we need is data.message (the image URL)
+        output.innerHTML = `<img src="${data.message}" alt="A random dog" />`;
+      } catch (err) {
+        output.innerHTML = '<p class="error">Could not fetch a dog: ' + err.message + "</p>";
+      }
+    }
+
+    // API 2: Advice Slip — random advice
+    async function getAdvice() {
+      output.innerHTML = "<p>Loading advice...</p>";
+      try {
+        const response = await fetch("https://api.adviceslip.com/advice");
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const data = await response.json();
+        // the field we need is data.slip.advice
+        output.innerHTML = `<p>"${data.slip.advice}"</p>`;
+      } catch (err) {
+        output.innerHTML = '<p class="error">Could not fetch advice: ' + err.message + "</p>";
+      }
+    }
+
+    // Surprise me: randomly pick one of the two APIs
+    function surprise() {
+      if (Math.random() < 0.5) {
+        getDog();
+      } else {
+        getAdvice();
+      }
+    }
+
+    document.getElementById("dogBtn").addEventListener("click", getDog);
+    document.getElementById("adviceBtn").addEventListener("click", getAdvice);
+    document.getElementById("surpriseBtn").addEventListener("click", surprise);
+  </script>
+
+</body>
+</html>
