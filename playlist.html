@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Playlist</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { color: #2c3e50; }
+    ul { list-style: none; padding: 0; }
+    li { background: #f4f6f9; border: 1px solid #dde3ec; border-radius: 8px;
+         padding: 0.7rem 1rem; margin-bottom: 0.5rem; }
+    .artist { color: #666; font-size: 0.9rem; }
+    .genre { float: right; background: #0f766e; color: white; font-size: 0.75rem;
+             padding: 0.15rem 0.6rem; border-radius: 999px; }
+  </style>
+</head>
+<body>
+
+  <h1>🎵 My Playlist</h1>
+  <p>Songs I listen to while studying. Built with the render-from-data pattern: one array, one loop.</p>
+  <ul id="playlist"></ul>
+
+  <script>
+    // the data: an array of song objects
+    const songs = [
+      { title: "Blinding Lights", artist: "The Weeknd", genre: "Pop" },
+      { title: "Yalgiz Yurak", artist: "Konsta", genre: "Uzbek rap" },
+      { title: "Lose Yourself", artist: "Eminem", genre: "Hip-hop" },
+      { title: "Bohemian Rhapsody", artist: "Queen", genre: "Rock" },
+      { title: "Winter (Four Seasons)", artist: "Vivaldi", genre: "Classical" },
+      { title: "Starboy", artist: "The Weeknd", genre: "Pop" }
+    ];
+
+    // the loop: one <li> per song
+    const list = document.getElementById("playlist");
+
+    for (const song of songs) {
+      const li = document.createElement("li");
+      li.innerHTML = `<span class="genre">${song.genre}</span>
+                      <b>${song.title}</b><br>
+                      <span class="artist">${song.artist}</span>`;
+      list.appendChild(li);
+    }
+  </script>
+
+</body>
+</html>
