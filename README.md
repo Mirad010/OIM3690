@@ -13,7 +13,11 @@ This is my course repo for OIM3690. It holds class exercises, weekly logs, and l
 | MP1 – Website for Someone Else | [repo](https://github.com/Mirad010/yoyo-clothing) | [live](https://mirad010.github.io/yoyo-clothing) |
 | MP2 – Interactive Web Tool | [repo](https://github.com/Mirad010/habit-tracker) | [live](https://mirad010.github.io/habit-tracker) |
 | MP3 – API-Powered App | [repo](https://github.com/Mirad010/country-explorer) | [live](https://mirad010.github.io/country-explorer/) |
-| Final Project | | |
+| Final Project — Hotel Feasibility Studio | [repo](https://github.com/Mirad010/hotel-feasibility) | [live](https://mirad010.github.io/hotel-feasibility/) |
+
+## Learning Journey
+
+See [learning-journey.html](learning-journey.html) for the full semester story.
 
 ## Weekly Logs
 
