@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Semester Building the Web — Learning Journey</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1c2521;
+  --paper:#f3efe6;
+  --panel:#fffdf8;
+  --line:#d8d1c0;
+  --muted:#6b6355;
+  --amber:#c98a2c;
+  --green:#3f7d5c;
+  --rust:#a4432f;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:17px;
+  line-height:1.65;
+}
+.mono{font-family:'JetBrains Mono',monospace}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+
+header{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:1.6px;
+  text-transform:uppercase;color:var(--amber);margin:0 0 14px;font-weight:500;
+}
+h1{
+  font-size:38px;font-weight:600;letter-spacing:-0.5px;margin:0 0 16px;line-height:1.15;
+}
+.lede{color:var(--muted);font-size:18px;max-width:56ch;margin:0}
+
+/* skill strip */
+.skills{padding:36px 0 44px;border-bottom:1px solid var(--line)}
+.skills h2{
+  font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:1.4px;
+  text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 16px;
+}
+.skillrow{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;
+  background:var(--panel);border:1px solid var(--line);color:var(--ink);
+  padding:5px 12px;border-radius:20px;white-space:nowrap;
+}
+.chip .wk{color:var(--amber);margin-right:6px}
+
+/* timeline */
+main{padding:48px 0 20px;position:relative}
+.branch{
+  position:absolute;left:calc(24px + 27px);top:48px;bottom:20px;width:2px;
+  background:var(--line);
+}
+.commit{position:relative;padding-left:74px;margin-bottom:46px}
+.commit:last-child{margin-bottom:0}
+.node{
+  position:absolute;left:20px;top:4px;width:16px;height:16px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--ink);z-index:1;
+}
+.commit.milestone .node{background:var(--amber);border-color:var(--amber)}
+.hash{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:4px}
+.hash .wknum{color:var(--ink);font-weight:700}
+.msg{font-size:20px;font-weight:600;margin:2px 0 14px;line-height:1.35}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  padding:16px 20px;
+}
+.field{margin:0 0 12px}
+.field:last-child{margin-bottom:0}
+.flabel{
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.8px;
+  text-transform:uppercase;font-weight:600;margin:0 0 4px;
+}
+.flabel.built{color:var(--ink)}
+.flabel.learned{color:var(--green)}
+.flabel.ai{color:var(--amber)}
+.flabel.q{color:var(--rust)}
+.field p{margin:0;font-size:15.5px;color:#3a3530}
+
+/* closing */
+footer{
+  padding:56px 0 90px;border-top:1px solid var(--line);margin-top:20px;
+}
+.closing{font-size:18px;max-width:58ch}
+.closing a{color:var(--ink)}
+.finalcard{
+  margin-top:28px;background:var(--ink);color:var(--paper);border-radius:10px;
+  padding:22px 24px;
+}
+.finalcard .flabel{color:#e8c98a}
+.finalcard a{color:var(--paper);text-decoration:underline}
+
+@media (max-width:640px){
+  h1{font-size:29px}
+  .msg{font-size:18px}
+  .commit{padding-left:56px}
+  .node{left:14px}
+  .branch{left:calc(14px + 7px)}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">OIM 3690 — AI-Powered Web Development</p>
+    <h1>My Semester Building the Web</h1>
+    <p class="lede">Ten weeks, logged commit by commit — from a bare <span class="mono">hello.html</span> to a hotel investment calculator running on real economic data. This page is built from my own weekly logs.</p>
+  </header>
+
+  <section class="skills">
+    <h2>Concepts, in the order I actually learned them</h2>
+    <div class="skillrow">
+      <span class="chip"><span class="wk">wk1</span>HTML tags</span>
+      <span class="chip"><span class="wk">wk1</span>git add / commit / push</span>
+      <span class="chip"><span class="wk">wk3</span>CSS selectors</span>
+      <span class="chip"><span class="wk">wk3</span>the cascade</span>
+      <span class="chip"><span class="wk">wk4</span>Flexbox</span>
+      <span class="chip"><span class="wk">wk4</span>CSS Grid</span>
+      <span class="chip"><span class="wk">wk4</span>HTML forms, GET vs POST</span>
+      <span class="chip"><span class="wk">wk5</span>JS events, onclick</span>
+      <span class="chip"><span class="wk">wk6</span>DOM manipulation</span>
+      <span class="chip"><span class="wk">wk6</span>localStorage</span>
+      <span class="chip"><span class="wk">wk7</span>looping over arrays of data</span>
+      <span class="chip"><span class="wk">wk7</span>async fetch, POST requests</span>
+      <span class="chip"><span class="wk">wk8</span>consuming a live API</span>
+      <span class="chip"><span class="wk">wk8</span>handling a dead API</span>
+      <span class="chip"><span class="wk">wk9</span>chart + map libraries</span>
+      <span class="chip"><span class="wk">wk10</span>combining multiple data sources</span>
+    </div>
+  </section>
+
+  <main>
+    <div class="branch" aria-hidden="true"></div>
+
+    <article class="commit">
+      <p class="hash"><span class="wknum">wk01</span> · foundations</p>
+      <h3 class="msg">Set up both repos, wrote my first HTML by hand</h3>
+      <div class="card">
+        <div class="field"><p class="flabel built">Built</p><p>Set up <span class="mono">oim3690</span> and <span class="mono">mirad010.github.io</span> on GitHub, then wrote <span class="mono">hello.html</span> by hand.</p></div>
+        <div class="field"><p class="flabel learned">Learned</p><p>Basic HTML tags, and how to actually push code with <span class="mono">git add / commit / push</span>.</p></div>
+        <div class="field"><p class="flabel ai">AI</p><p>Asked AI to add a nav bar, a section, and a footer to hello.html.</p></div>
+        <div class="field"><p class="flabel q">Didn't understand yet</p><p>How CSS styling works, or what Live Server actually does.</p></div>
+      </div>
+    </article>
+
+    <article class="commit">
+      <p class="hash"><span class="wknum">wk02</span> · rewriting to understand</p>
+      <h3 class="msg">Took AI's code apart and rebuilt the nav bar myself</h3>
+      <div class="card">
+        <div class="field"><p class="flabel built">Built</p><p>Rewrote the nav bar styling from wk01 and swapped in my real interests instead of placeholder content.</p></div>
+        <div class="field"><p class="flabel learned">Learned</p><p>Why I changed it: I wanted to actually understand how nav, section, and footer tags work instead of just having AI generate them.</p></div>
+      </div>
+    </article>
+
+    <article class="commit">
+      <p class="hash"><span class="wknum">wk03</span> · first real CSS</p>
+      <h3 class="msg">Wrote style.css from scratch — selectors, cascade, DevTools</h3>
+      <div class="card">
+        <div class="field"><p class="flabel built">Built</p><p><span class="mono">css/style.css</span> with body, h1, .highlight, and a:hover rules, linked into about-me.html.</p></div>
+        <div class="field"><p class="flabel learned">Learned</p><p>How element, class, and pseudo-class selectors work, how styles cascade, and how to use DevTools to inspect what's actually being applied.</p></div>
+        <div class="field"><p class="flabel ai">AI</p><p>Used AI to understand CSS syntax and selector logic.</p></div>
+        <div class="field"><p class="flabel q">Didn't understand yet</p><p>How specificity actually gets calculated, or what Flexbox does.</p></div>
+      </div>
+    </article>
+
+    <article class="commit milestone">
+      <p class="hash"><span class="wknum">wk04</span> · MP1</p>
+      <h3 class="msg">Built YOYO Clothing — a real site for a friend, first forms</h3>
+      <div class="card">
+        <div class="field"><p class="flabel built">Built</p><p>MP1: a clothing site for my friend Ali, with product photos, a contact.html form, and CSS to style it.</p></div>
+        <div class="field"><p class="flabel learned">Learned</p><p>Flexbox and Grid for layout, how HTML forms work (action, method, input types), and the difference between GET and POST.</p></div>
+        <div class="field"><p class="flabel ai">AI</p><p>Used AI to structure the site, build the contact form, and write PRD.md for the project.</p></div>
+        <div class="field"><p class="flabel q">Didn't understand yet</p><p>Responsive design on mobile, and how JavaScript would eventually connect to forms.</p></div>
+      </div>
+    </article>
+
+    <article class="commit">
+      <p class="hash"><span class="wknum">wk05</span> · JavaScript shows up</p>
+      <h3 class="msg">Added my first real interactivity — a modal that opens on click</h3>
+      <div class="card">
+        <div class="field"><p class="flabel built">Built</p><p><span class="mono">js-demo.html</span>, and a JavaScript modal popup on the YOYO shop page.</p></div>
+        <div class="field"><p class="flabel learned">Learned</p><p>That JavaScript can make a page interactive without reloading it, and how <span class="mono">onclick</span> triggers a function.</p></div>
+        <div class="field"><p class="flabel ai">AI</p><p>Used AI to add the modal popup and redesign the home and contact pages.</p></div>
+        <div class="field"><p class="flabel q">Didn't understand yet</p><p>What <span class="mono">document.getElementById()</span> actually does, why <span class="mono">addEventListener</span> exists instead of just onclick, and where <span class="mono">console.log()</span> output even shows up.</p></div>
+      </div>
+    </article>
+
+    <article class="commit milestone">
+      <p class="hash"><span class="wknum">wk06</span> · MP2</p>
+      <h3 class="msg">Wrote real functions by hand, finished Habit Tracker Pro</h3>
+      <div class="card">
+        <div class="field"><p class="flabel built">Built</p><p>A to-do app with localStorage, a two-way temperature converter, a discount calculator with a real <span class="mono">getDiscount()</span> function, and finished MP2.</p></div>
+        <div class="field"><p class="flabel learned">Learned</p><p>Writing functions with if/else by hand, converting input with Number()/parseFloat(), updating the DOM without alert() boxes, and how localStorage persists data between sessions.</p></div>
+        <div class="field"><p class="flabel ai">AI</p><p>Used AI to scaffold the to-do app and then reviewed the code myself; used it to turn a one-way converter into two-way, and a basic function into a full checkout page.</p></div>
+      </div>
+    </article>
+
+    <article class="commit">
+      <p class="hash"><span class="wknum">wk07</span> · data and APIs begin</p>
+      <h3 class="msg">Rendered data from an array, sent my first fetch request</h3>
+      <div class="card">
+        <div class="field"><p class="flabel built">Built</p><p><span class="mono">playlist.html</span> (array of song objects rendered with a for loop), <span class="mono">post-message.html</span> (async POST request with an auth header), and <span class="mono">fetch-fun.html</span> (Dog CEO + Advice Slip APIs).</p></div>
+        <div class="field"><p class="flabel learned">Learned</p><p>The render-from-data pattern — data lives in one place, a loop builds the page. Also that different APIs bury their data in different JSON fields (<span class="mono">data.message</span> vs <span class="mono">data.slip.advice</span>), so you actually have to go look.</p></div>
+      </div>
+    </article>
+
+    <article class="commit milestone">
+      <p class="hash"><span class="wknum">wk08</span> · MP3</p>
+      <h3 class="msg">Finished Country Explorer — then watched the API die mid-project</h3>
+      <div class="card">
+        <div class="field"><p class="flabel built">Built</p><p>MP3, Country Explorer: search, region filter, sorting, live capital-city weather, a compare mode, a flag quiz, and favorites in localStorage.</p></div>
+        <div class="field"><p class="flabel learned">Learned</p><p>That a real API can just stop working while you're using it. REST Countries v3.1 got deprecated mid-build and v5 needed a paid key I couldn't put in a public repo — switched to countries.dev instead and remapped every field name. The error state I'd already built (instead of letting it crash) is what kept the site usable while I fixed it.</p></div>
+        <div class="field"><p class="flabel ai">AI</p><p>AI wrote the original fetch code against REST Countries; when it broke in production, I diagnosed the real cause by opening the API URL directly in the browser, then rewrote it against countries.dev myself.</p></div>
+      </div>
+    </article>
+
+    <article class="commit milestone">
+      <p class="hash"><span class="wknum">wk09</span> · final project starts</p>
+      <h3 class="msg">Started Hotel Feasibility Studio — my family's actual property question</h3>
+      <div class="card">
+        <div class="field"><p class="flabel built">Built</p><p>The first working version of my final project: sliders for rooms, cost, rate, and occupancy that recalculate live, a break-even bar, a 15-year cash flow chart, a map, and currency conversion.</p></div>
+        <div class="field"><p class="flabel learned">Learned</p><p>That break-even analysis from ACC 2002 and payback period from finance translate into real JavaScript pretty directly once you write them out as formulas.</p></div>
+        <div class="field"><p class="flabel ai">AI</p><p>Talked through the idea and the formulas with AI before building, then had it help scaffold the HTML/CSS/JS faster than typing all of it by hand.</p></div>
+        <div class="field"><p class="flabel q">Question</p><p>I checked the calculation logic and it seems right, but I want to make sure there aren't small errors in how variable costs combine with occupancy before building more on top of it.</p></div>
+      </div>
+    </article>
+
+    <article class="commit milestone">
+      <p class="hash"><span class="wknum">wk10</span> · final project, fixed</p>
+      <h3 class="msg">Found the map was fake, made it actually drive the numbers</h3>
+      <div class="card">
+        <div class="field"><p class="flabel built">Built</p><p>Connected the map to the calculations for real: World Bank GDP-per-capita data scales construction cost and room rate to the local economy, and OpenStreetMap's Overpass API counts real hotels/attractions/restaurants near the pin to estimate occupancy. Also fixed my documentation — PROPOSAL.md, README.md, WORKLOG.md.</p></div>
+        <div class="field"><p class="flabel learned">Learned</p><p>Free public APIs fail in specific, fixable ways — my first Overpass request returned nothing because it was a POST instead of a GET, and the main server sometimes doesn't answer at all, so I added backup mirrors.</p></div>
+        <div class="field"><p class="flabel ai">AI</p><p>Worked through a couple of failed approaches with AI before landing on the GDP + OpenStreetMap combination, then used it to debug the Overpass request once it started failing.</p></div>
+        <div class="field"><p class="flabel q">Question</p><p>Is a GDP-per-capita based formula a reasonable simplification for a first version, or too big an assumption to hang real financial numbers on?</p></div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="closing">Looking back at wk01, I didn't know what a tag was for. By wk10 I was debugging a failed API request against a live financial model I built myself. The biggest shift wasn't syntax — it was going from asking AI to build things for me, to asking it to help me build things I already understood.</p>
+    <div class="finalcard">
+      <p class="flabel">Final project</p>
+      <p style="margin:0 0 8px;font-size:17px">Hotel Feasibility Studio — a hotel investment calculator driven by real GDP and location data.</p>
+      <p style="margin:0"><a href="https://mirad010.github.io/hotel-feasibility/">mirad010.github.io/hotel-feasibility</a></p>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
